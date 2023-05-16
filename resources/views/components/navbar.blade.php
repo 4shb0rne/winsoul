@@ -7,19 +7,25 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" style="display: flex">
             <img src="{{ asset('storage/assets/logo.png') }}" style="width: 50px; height: 50px"/>
-            <a class="nav-link active" aria-current="page" style="font-weight: bold; font-size: 20px">Winsoul</a>
+            <a class="nav-link active" aria-current="page" style="font-weight: bold; font-size: 20px" href="/">Winsoul</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
         </ul>
         <div class="d-flex">
-            <a class="m-1" href="/register">
-                <button class="btn btn-light">Register</button>
-            </a>
-            <a class="m-1" href="/login">
-                <button class="btn btn-dark">Login</button>
-            </a>
+            @if(Auth::user())
+                <a class="m-1" href="/logout">
+                    <button class="btn btn-dark">Logout</button>
+                </a>
+            @else
+                <a class="m-1" href="/register">
+                    <button class="btn btn-light">Register</button>
+                </a>
+                <a class="m-1" href="/login">
+                    <button class="btn btn-dark">Login</button>
+                </a>
+            @endif
         </div>
       </div>
     </div>

@@ -1,0 +1,37 @@
+.star-rating {
+    display: inline-block;
+  }
+
+  .star-rating input[type="radio"] {
+    display: none;
+  }
+
+  .star-rating label {
+    float: right;
+    cursor: default;
+    color: #ccc;
+  }
+
+  .star-rating label:before {
+    content: "\2605";
+    font-size: 24px;
+  }
+
+  .star-rating label.half:before {
+    content: "\2605";
+    position: absolute;
+    display: inline-block;
+    width: 0.6em; /* Adjust the width to control the fill amount */
+    overflow: hidden;
+  }
+
+  .star-rating input[type="radio"]:checked ~ label,
+  .star-rating input[type="radio"]:checked ~ label.half {
+    color: #ffca08;
+  }
+
+  .star-rating input[type="radio"]:hover ~ label,
+  .star-rating input[type="radio"]:hover ~ label.half {
+    cursor: default;
+    color: #ccc;
+  }

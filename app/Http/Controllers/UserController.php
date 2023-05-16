@@ -17,19 +17,26 @@ class UserController extends Controller
         return view('pages/login');
     }
 
-    public function login(Request $request){
-        $validate = $request->validate([
+    public function login(Request $request)
+    {
+        $validatedData = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-        if(Auth::attempt($validate)) {
+
+        $credentials = [
+            'email' => $validatedData['email'],
+            'password' => $validatedData['password'],
+        ];
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect('/');
         }
+
         return back()->withErrors([
-            'errormsg' => 'Invalid Credential'
+            'errormsg' => 'Invalid credentials',
         ]);
-        return redirect('/');
     }
 
     function register(Request $request)
@@ -40,10 +47,10 @@ class UserController extends Controller
             'password' => 'required|min:8'
         ]);
         User::create([
-            'Username' => $validate['name'],
-            'Email' => $validate['email'],
-            'Password' => bcrypt($validate['password']),
-            'Role' => 'User'
+            'username' => $validate['name'],
+            'email' => $validate['email'],
+            'password' => bcrypt($validate['password']),
+            'role' => 'User'
         ]);
         return redirect('/login');
     }

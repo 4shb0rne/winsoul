@@ -13,36 +13,38 @@
             Login
         </h2>
     </div>
-<div class="d-flex justify-content-center" style="margin-top: 2.5%;">
-    <div class="card row d-flex" style="width: 30rem;">
-        <div class="card-body">
-            <form action="/login" method="POST">
-                @csrf
-                <p class="card-text">Email</p>
-                <div class="mb-3">
-                    <input type="text" class="form-control @error('email')is-invalid @enderror" name="email" value="{{ old('email') }}"/>
-                    @error('email')
-                    <div class="invalid-feedback">
-                        {{ $message }}
+    <div class="d-flex justify-content-center" style="margin-top: 2.5%;">
+        <div class="card row d-flex" style="width: 30rem;">
+            <div class="card-body">
+                <form action="/login" method="POST">
+                    @csrf
+                    <p class="card-text">Email</p>
+                    <div class="mb-3">
+                        <input type="text" class="form-control @error('email')is-invalid @enderror" name="email" value="{{ old('email') }}" />
+                        @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @enderror
-                </div>
-                <p class="card-text">Password</p>
-                <div class="mb-3">
-                    <input type="password" class="form-control @error('password')is-invalid @enderror" name="password" value="{{ old('password') }}"/>
-                    @error('password')
-                    <div class="invalid-feedback">
-                        {{ $message }}
+                    <p class="card-text">Password</p>
+                    <div class="mb-3">
+                        <input type="password" class="form-control @error('password')is-invalid @enderror" name="password" value="{{ old('password') }}" />
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @enderror
-                </div>
-                <p>
-                    <input type="checkbox">
-                    <label>Remember me</label>
-                </p>
-                <p><a href="/login"><button class="btn btn-dark" style="width: 100%;">Login</button></a></p>
-            </form>
+                    <p>
+                        <input type="checkbox">
+                        <label>Remember me</label>
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-dark" style="width: 100%;">Login</button>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 @endsection
