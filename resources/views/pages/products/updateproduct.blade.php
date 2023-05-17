@@ -1,7 +1,8 @@
 @extends('index')
 @section('content')
 <div class="insertform">
-    <form action="/updateproduct" method="POST" enctype="multipart/form-data">
+    <div class="text-center"><h2>Update Product</h2></div>
+    <form action="{{ url('updateproduct/'.$product->ProductID) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label>Product Name</label>

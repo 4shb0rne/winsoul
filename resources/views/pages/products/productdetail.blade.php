@@ -45,13 +45,19 @@
             </div>
         </div>
     </div>
-    <div class="col-5" style="position: sticky; top: 0; align-self: flex-start; font-size:12px">
-            <p><a href=""><input type="button" class="btn btn-dark mt-3" style="width: 50%" value="Edit Product"/></a></p>
-            <div class="card mb-3" style="width: 300px; height:250px">
+    @auth
+    <div class="col-4" style="position: sticky; top: 0; align-self: flex-start; font-size:12px">
+            @if(Auth::user()->role == "Admin")
+            <p><a href="{{ url('updateproduct/'.$product->ProductID) }}"><input type="button" class="btn btn-secondary mt-3" style="width: 50%" value="Edit Product"/></a></p>
+            @endif
+            <div class="card mb-3" style="width: 250px; height:200px">
                     <div class="card-body">
-                        <p class="card-title">${{$product->productprice}}</p>
+                        <p class="card-title h4">${{$product->productprice}}</p>
+                        <p class="card-title"><input type="number" class="border" value="1"/></p>
+                        <p class="card-title"><input type="button" class="btn btn-success mt-3" value="Checkout"/></p>
                     </div>
             </div>
     </div>
+    @endauth
 </div>
 @endsection
