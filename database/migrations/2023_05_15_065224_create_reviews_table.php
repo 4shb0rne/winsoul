@@ -17,8 +17,8 @@ return new class extends Migration
             $table->char('ReviewID', 7)->primary();
             $table->char('UserID', 7);
             $table->char('ProductID', 7);
-            $table->integer('ReviewScore');
-            $table->string('Content', 255);
+            $table->integer('reviewscore');
+            $table->string('content', 255);
             $table->timestamps();
 
             $table->foreign('UserID')->references('UserID')->on('users')->onDelete('cascade');

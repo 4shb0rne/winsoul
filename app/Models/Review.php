@@ -12,7 +12,7 @@ class Review extends Model
         'ReviewID',
         'UserID',
         'ProductID',
-        'ReviewScore',
-        'Content',
+        'reviewscore',
+        'content',
     ];
 }

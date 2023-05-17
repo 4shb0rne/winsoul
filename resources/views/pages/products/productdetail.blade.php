@@ -43,7 +43,21 @@
     @auth
     <div class="col-4" style="position: sticky; top: 0; align-self: flex-start; font-size:12px">
             @if(Auth::user()->role == "Admin")
-            <p><a href="{{ url('updateproduct/'.$product->ProductID) }}"><input type="button" class="btn btn-secondary mt-3" style="width: 50%" value="Edit Product"/></a></p>
+            <p>
+                <a href="{{ url('updateproduct/'.$product->ProductID) }}">
+                    <button class="btn btn-secondary" style="width: 50%">
+                        <i class="fa-icon fa fa-edit"></i>
+                        <span style="margin-left: 5px"> Update Button</span></button>
+                </a>
+            </p>
+            <p>
+                <a href="{{ url('deleteproduct/'.$product->ProductID) }}">
+                    <button class="btn btn-danger" style="width: 50%">
+                        <i class="fa-icon fa fa-trash"></i>
+                        <span style="margin-left: 5px"> Delete Button</span>
+                    </button>
+                </a>
+            </p>
             @endif
             <div class="card mb-3" style="width: 200px; height:160px">
                     <div class="card-body">

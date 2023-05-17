@@ -40,6 +40,30 @@ class ProductSeeder extends Seeder
                 'productdescription' => 'The TRN V90 is a value-for-money Chi-Fi IEM with 4 balanced armature drivers, offering detailed and immersive sound reproduction at an affordable price point.',
                 'productimage' => 'TRN-V90.jpeg'
             ],
+            [
+                'productname' => 'Tangzu Wan\'er',
+                'productprice' => 19.99,
+                'productdescription' => 'Equipped with a 10mm single dynamic driver, Wan\'er S.G is eventually launched after 5 times of driver adjustments during tuning development.',
+                'productimage' => 'waner.webp'
+            ],
+            [
+                'productname' => '7hz Timeless',
+                'productprice' => 219.99,
+                'productdescription' => 'Adopts Double-sided Array N52 Magnet and Ultra-thin Diaphragm, 14.2mm Planar Driver, CNC Aluminum Shell, Detachable MMCX Cable, and Lightweight and Comfortable',
+                'productimage' => '7hz-timeless.avif'
+            ],
+            [
+                'productname' => 'TinHifi T3 Plus',
+                'productprice' => 69.00,
+                'productdescription' => '10mm LCP Diaphragm Hi-Fi Earphone, Latest Generation Liquid Crystal Polymer Diaphragm, Balanced Tuning, Ergonomic Design, Exquisite Faceplate, High Quality Oxygen-free Copper Cable',
+                'productimage' => 'tin_hifi_t3.webp'
+            ],
+            [
+                'productname' => '7Hz Salnotes Zero',
+                'productprice' => 25.99,
+                'productdescription' => '10mm Dynamic Driver With Metal Composite Diaphragm, Ergonomic Shape&Metal Housing, Detachable High Purity OFC Cable, N52 Magnet, Fine Tuning',
+                'productimage' => '7hz-saltnotes.avif'
+            ]
         ];
 
         foreach ($iemData as $data) {

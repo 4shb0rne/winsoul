@@ -74,4 +74,15 @@ class ProductController extends Controller
         $products = Product::latest('created_at')->paginate(10);
         return view('pages/home', ['data' => $products]);
     }
+
+    public function deleteProduct($id)
+    {
+        Product::find($id)->delete();
+        return redirect('/');
+    }
+
+    public function searchProduct(Request $request)
+    {
+
+    }
 }
