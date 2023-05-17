@@ -1,13 +1,8 @@
 @extends('index')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
-@if(@session('success'))
-    <div class="alert alert-success text-center">
-        {{ @session('success') }}
-    </div>
-@endif
 <div class="row mt-5" style="margin-left: 20%;">
-    <div class="col-7">
+    <div class="col-8">
         <p class="h5"><b>{{ $product->product_name }}</b></p>
         <div>
             <div class="mb-3 h2">
@@ -50,11 +45,20 @@
             @if(Auth::user()->role == "Admin")
             <p><a href="{{ url('updateproduct/'.$product->ProductID) }}"><input type="button" class="btn btn-secondary mt-3" style="width: 50%" value="Edit Product"/></a></p>
             @endif
-            <div class="card mb-3" style="width: 250px; height:200px">
+            <div class="card mb-3" style="width: 200px; height:160px">
                     <div class="card-body">
-                        <p class="card-title h4">${{$product->productprice}}</p>
-                        <p class="card-title"><input type="number" class="border" value="1"/></p>
-                        <p class="card-title"><input type="button" class="btn btn-success mt-3" value="Checkout"/></p>
+                        <form method="POST" enctype="multipart/form-data" action="{{ url('addcart/'.$product->ProductID) }}">
+                            @csrf
+                            <p class="card-title h4">${{$product->productprice}}</p>
+                            <p class="card-title">
+                                <input type="number" class="border" value="1" name="quantity"/>
+                            </p>
+                            <p class="card-title">
+                                <button type="submit" class="btn btn-success">
+                                    Checkout
+                                </button>
+                            </p>
+                        </form>
                     </div>
             </div>
     </div>

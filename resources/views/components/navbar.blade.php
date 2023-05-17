@@ -9,12 +9,13 @@
             <img src="{{ asset('storage/assets/logo.png') }}" style="width: 50px; height: 50px"/>
             <a class="nav-link active" aria-current="page" style="font-weight: bold; font-size: 20px" href="/">Winsoul</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
         </ul>
         <div class="d-flex">
             @if(Auth::user())
+                <a class="cart-icon m-1 p-2 text-decoration-none text-dark" href="/carts">
+                    <i class="fas fa-shopping-cart" style="color: black"></i>
+                    Cart
+                </a>
                 <a class="m-1" href="/logout">
                     <button class="btn btn-dark">Logout</button>
                 </a>

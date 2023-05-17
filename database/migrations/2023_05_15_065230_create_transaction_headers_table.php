@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transaction_headers', function (Blueprint $table) {
             $table->char('TransactionID', 7)->primary();
             $table->char('UserID', 7);
-            $table->date('SalesDate');
+            $table->date('TransactionDate');
             $table->timestamps();
 
             $table->foreign('UserID')->references('UserID')->on('users')->onDelete('cascade');
