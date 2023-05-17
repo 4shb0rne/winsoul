@@ -13,4 +13,14 @@ class TransactionDetail extends Model
         'ProductID',
         'Quantity',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'ProductID');
+    }
+
+    public function transactionHeader()
+    {
+        return $this->belongsTo(TransactionHeader::class, 'TransactionID');
+    }
 }

@@ -34,4 +34,9 @@ class Product extends Model
         'productdescription',
         'productimage'
     ];
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class, 'ProductID');
+    }
 }

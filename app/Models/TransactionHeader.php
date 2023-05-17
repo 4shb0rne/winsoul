@@ -32,4 +32,14 @@ class TransactionHeader extends Model
         'UserID',
         'TransactionDate',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'UserID');
+    }
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class, 'TransactionID');
+    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,7 @@ Route::post('/addcart/{id}', [CartController::class, 'addCart']);
 Route::get('/carts', [CartController::class, 'openCart']);
 Route::get('/deletecart/{id}', [CartController::class, 'deleteCartProduct']);
 Route::get('/checkout', [CartController::class, 'checkout']);
+
+Route::get('/transactions', [TransactionController::class, 'getAllTransactions']);
+Route::get('/transactions/{id}', [TransactionController::class, 'getTransactionDetail']);
+Route::get('/deletetransaction/{id}', [TransactionController::class, 'deleteTransaction']);
