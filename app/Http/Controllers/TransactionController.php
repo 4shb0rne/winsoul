@@ -23,7 +23,12 @@ class TransactionController extends Controller
 
     public function getTransactionDetail($id)
     {
-        $transactionDetails = TransactionDetail::whereIn('TransactionID', $id)->get();
-        return view('pages/transactions/transactiondetail', ['details' => $transactionDetails]);
+        $transactionDetails = TransactionDetail::where('TransactionID', $id)->get();
+        $totalprice = 0;
+        foreach($transactionDetails as $transaction){
+            $totalprice += $transaction->product->productprice * $transaction->Quantity;
+        }
+        return view('pages/transactions/transactiondetail', ['transactions' => $transactionDetails,
+        'total_price' => $totalprice]);
     }
 }

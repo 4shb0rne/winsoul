@@ -13,7 +13,7 @@
                 <th scope="col">User ID</th>
                 <th scope="col">Username</th>
                 <th scope="col">Transaction Date</th>
-                <th scope="col">Action</th>
+                <th scope="col" style="padding-left: 35px">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -24,10 +24,18 @@
                     <td>{{ $transaction->user->username }}</td>
                     <td>{{ $transaction->TransactionDate }}</td>
                     <td>
-                        <span class="fa-stack fa-sm">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fas fa-info fa-stack-1x fa-inverse"></i>
-                        </span>
+                        <a href="{{ url('transactions/'.$transaction->TransactionID) }}" style="text-decoration: none">
+                            <span class="fa-stack fa-sm">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-info fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="{{ url('deletetransaction/'.$transaction->TransactionID) }}" style="text-decoration: none">
+                            <span class="fa-stack fa-sm">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

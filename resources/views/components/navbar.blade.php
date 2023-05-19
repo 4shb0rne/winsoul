@@ -12,6 +12,18 @@
         </ul>
         <div class="d-flex">
             @if(Auth::user())
+               @if(Auth::user()->role == "Admin")
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle m-1 p-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-tasks" aria-hidden="true"></i> Admin Menu
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/addproduct">Add Item</a></li>
+                    <li><a class="dropdown-item" href="/transactions">Manage Transactions</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                @endif
                 <a class="cart-icon m-1 p-2 text-decoration-none text-dark" href="/carts">
                     <i class="fas fa-shopping-cart" style="color: black"></i>
                     Cart

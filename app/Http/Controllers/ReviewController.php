@@ -11,7 +11,7 @@ class ReviewController extends Controller
     public function getReviews($id)
     {
         $reviews = Review::where('productid', $id)->get();
-        return view('reviewlist', ['reviews' => $reviews]);
+        return view('pages/reviews/reviewlist', ['reviews' => $reviews]);
     }
 
     public function addReview(Request $request, $id)

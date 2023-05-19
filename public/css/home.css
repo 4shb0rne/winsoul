@@ -35,3 +35,32 @@
     cursor: default;
     color: #ccc;
   }
+
+  .star-rating .filled:before {
+    color: #ffca08;
+  }
+
+  .percentage-box {
+    position: relative;
+    width: 120px;
+    height: 20px;
+    border: 1px solid #ccc;
+  }
+
+  .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #ffca08;
+  }
+
+  .percentage-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
