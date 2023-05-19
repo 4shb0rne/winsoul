@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ class ReviewController extends Controller
     public function getReviews($id)
     {
         $reviews = Review::where('productid', $id)->get();
-        return view('pages/reviews/reviewlist', ['reviews' => $reviews]);
+        $product = Product::find($id);
+        return view('pages/reviews/reviewlist', ['reviews' => $reviews, 'product' => $product]);
     }
 
     public function addReview(Request $request, $id)

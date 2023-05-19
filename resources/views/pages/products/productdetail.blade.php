@@ -8,29 +8,37 @@
             <div class="mb-3 h2">
                 {{ $product->productname }}
             </div>
-            <div class="d-flex align-items-center">
-                <div class="star-rating">
-                    <input type="radio" id="star5" name="rating" value="5" disabled/>
-                    <label for="star5"></label>
-                    <input type="radio" id="star4half" name="rating" value="4.5" disabled/>
-                    <label for="star4half" class="half"></label>
-                    <input type="radio" id="star4" name="rating" value="4" disabled/>
-                    <label for="star4"></label>
-                    <input type="radio" id="star3half" name="rating" value="3.5" disabled/>
-                    <label for="star3half" class="half"></label>
-                    <input type="radio" id="star3" name="rating" value="3" disabled/>
-                    <label for="star3"></label>
-                    <input type="radio" id="star2half" name="rating" value="2.5" disabled/>
-                    <label for="star2half" class="half"></label>
-                    <input type="radio" id="star2" name="rating" value="2" disabled/>
-                    <label for="star2"></label>
-                    <input type="radio" id="star1half" name="rating" value="1.5" disabled/>
-                    <label for="star1half" class="half"></label>
-                    <input type="radio" id="star1" name="rating" value="1" disabled/>
-                    <label for="star1"></label>
+            <a style="text-decoration: none; color:black" href="{{ url('reviews/'.$product->ProductID) }}">
+                <div class="d-flex align-items-center">
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" disabled/>
+                        <label for="star5"></label>
+                        <input type="radio" id="star4half" name="rating" value="4.5" disabled/>
+                        <label for="star4half" class="half"></label>
+                        <input type="radio" id="star4" name="rating" value="4" disabled/>
+                        <label for="star4"></label>
+                        <input type="radio" id="star3half" name="rating" value="3.5" disabled/>
+                        <label for="star3half" class="half"></label>
+                        <input type="radio" id="star3" name="rating" value="3" disabled/>
+                        <label for="star3"></label>
+                        <input type="radio" id="star2half" name="rating" value="2.5" disabled/>
+                        <label for="star2half" class="half"></label>
+                        <input type="radio" id="star2" name="rating" value="2" disabled/>
+                        <label for="star2"></label>
+                        <input type="radio" id="star1half" name="rating" value="1.5" disabled/>
+                        <label for="star1half" class="half"></label>
+                        <input type="radio" id="star1" name="rating" value="1" disabled/>
+                        <label for="star1"></label>
+                    </div>
+                    <span style="margin-left: 10px">
+                        @if(count($reviews) == 0)
+                            No Reviews
+                        @else
+                            {{ count($reviews) }} Reviews
+                        @endif
+                    </span>
                 </div>
-                <span style="margin-left: 10px">30 Reviews</span>
-            </div>
+            </a>
             <div>
                 <img src="{{ asset('storage/assets/'.$product->productimage) }}" width="400px" height="400px">
                 <div class="mt-5">

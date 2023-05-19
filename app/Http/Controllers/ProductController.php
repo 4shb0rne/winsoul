@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -67,7 +68,8 @@ class ProductController extends Controller
 
     public function productDetail($id){
         $product = Product::find($id);
-        return view('pages/products/productdetail', ['product' => $product]);
+        $reviews = Review::where('productid', $id)->get();
+        return view('pages/products/productdetail', ['product' => $product, 'reviews' => $reviews]);
     }
 
     public function loadHomePage(){
@@ -85,4 +87,6 @@ class ProductController extends Controller
     {
 
     }
+
+
 }

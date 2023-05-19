@@ -15,4 +15,9 @@ class Review extends Model
         'reviewscore',
         'content',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'ProductID');
+    }
 }

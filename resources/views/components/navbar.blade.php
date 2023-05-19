@@ -32,11 +32,11 @@
                     <button class="btn btn-dark">Logout</button>
                 </a>
             @else
-                <a class="m-1" href="/register">
-                    <button class="btn btn-light">Register</button>
-                </a>
                 <a class="m-1" href="/login">
                     <button class="btn btn-dark">Login</button>
+                </a>
+                <a class="m-1" href="/register">
+                    <button class="btn btn-light">Register</button>
                 </a>
             @endif
         </div>
