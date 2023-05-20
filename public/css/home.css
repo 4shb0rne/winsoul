@@ -8,7 +8,7 @@
 
   .star-rating label {
     float: right;
-    cursor: default;
+    cursor: pointer;
     color: #ccc;
   }
 
@@ -26,14 +26,9 @@
   }
 
   .star-rating input[type="radio"]:checked ~ label,
-  .star-rating input[type="radio"]:checked ~ label.half {
+  .star-rating input[type="radio"]:checked ~ label.half,
+  .star-rating input[type="radio"].filled ~ label {
     color: #ffca08;
-  }
-
-  .star-rating input[type="radio"]:hover ~ label,
-  .star-rating input[type="radio"]:hover ~ label.half {
-    cursor: default;
-    color: #ccc;
   }
 
   .star-rating .filled:before {
@@ -63,4 +58,3 @@
     transform: translate(-50%, -50%);
     margin: 0;
   }
-
