@@ -21,23 +21,26 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [ProductController::class, 'loadHomePage']);
+Route::get('/productdetail/{id}', [ProductController::class, 'productDetail']);
+Route::get('/reviews/{id}', [ReviewController::class, 'getReviews']);
+Route::post('/searchproduct', [ProductController::class, 'searchProduct']);
+Route::get('/searchproduct', [ProductController::class, 'openSearchProduct']);
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [UserController::class, 'registerPage']);
-    Route::get('/login', [UserController::class, 'loginPage']);
+    Route::get('/login', [UserController::class, 'loginPage'])->name('login');
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
 });
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [UserController::class, 'logout']);
-    Route::get('/reviews/{id}', [ReviewController::class, 'getReviews']);
     Route::post('/addreview/{id}', [ReviewController::class, 'addReview']);
     Route::get('/deletereview/{id}/{productid}', [ReviewController::class, 'deleteReview']);
     Route::post('/addcart/{id}', [CartController::class, 'addCart']);
     Route::get('/carts', [CartController::class, 'openCart']);
     Route::get('/deletecart/{id}', [CartController::class, 'deleteCartProduct']);
     Route::get('/checkout', [CartController::class, 'checkout']);
-    Route::get('/productdetail/{id}', [ProductController::class, 'productDetail']);
 });
 Route::middleware('admin')->group(function () {
     Route::get('/addproduct', [ProductController::class, 'addProductPage']);

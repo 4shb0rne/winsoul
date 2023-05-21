@@ -69,7 +69,8 @@ class ProductController extends Controller
     public function productDetail($id){
         $product = Product::find($id);
         $reviews = Review::where('productid', $id)->get();
-        return view('pages/products/productdetail', ['product' => $product, 'reviews' => $reviews]);
+        $stars = $reviews->avg('reviewscore');
+        return view('pages/products/productdetail', ['product' => $product, 'reviews' => $reviews, 'stars' => $stars]);
     }
 
     public function loadHomePage(){
@@ -85,8 +86,18 @@ class ProductController extends Controller
 
     public function searchProduct(Request $request)
     {
-
+        if($request->productname == ''){
+            $products = Product::paginate(10);
+            return view('pages/products/productlist', ['data' => $products]);
+        } else {
+            $products = Product::where('productname', 'like', '%'.$request->productname.'%')->paginate(10);
+            return view('pages/products/productlist', ['data' => $products]);
+        }
     }
 
-
+    public function openSearchProduct()
+    {
+        $products = Product::paginate(10);
+        return view('pages/products/productlist', ['data' => $products]);
+    }
 }

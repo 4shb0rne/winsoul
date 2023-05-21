@@ -58,3 +58,13 @@
     transform: translate(-50%, -50%);
     margin: 0;
   }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+      color: black;
+}

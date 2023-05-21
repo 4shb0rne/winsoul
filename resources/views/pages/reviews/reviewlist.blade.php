@@ -147,6 +147,7 @@
                 </div>
             </div>
         </div>
+        @auth
         <form method="POST" enctype="multipart/form-data" action="{{ url('addreview/'.$product->ProductID) }}">
             @csrf
             <div class="mt-5 border p-3">
@@ -174,6 +175,7 @@
                 @endif
             </div>
         </form>
+        @endauth
         <div>
             @foreach($reviews as $review)
                 <div class="container border p-3">

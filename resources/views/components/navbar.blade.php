@@ -20,7 +20,6 @@
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/addproduct">Add Item</a></li>
                     <li><a class="dropdown-item" href="/transactions">Manage Transactions</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </div>
                 @endif
