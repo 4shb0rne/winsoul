@@ -30,11 +30,11 @@
                         <input type="radio" id="star1" name="rating" value="1" disabled/>
                         <label for="star1" class="{{ $stars >= 1 ? 'filled' : '' }}"></label>
                     </div>
-                    <span style="margin-left: 10px">
+                    <span style="margin-left: 10px" class="text-primary">
                         @if(count($reviews) == 0)
-                            No Reviews
+                            <u>No Reviews</u>
                         @else
-                            {{ count($reviews) }} Reviews
+                            <u>{{ count($reviews) }} Reviews</u>
                         @endif
                     </span>
                 </div>
