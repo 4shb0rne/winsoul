@@ -16,21 +16,29 @@ class ReviewController extends Controller
         $reviews = Review::where('productid', $id)->get();
         $product = Product::find($id);
         $number = count($reviews);
-        $review5star = Collection::make($reviews)->filter(function ($review) {
-            return $review->reviewscore == 5;
-        })->count()/$number*100;
-        $review4star = Collection::make($reviews)->filter(function ($review) {
-            return $review->reviewscore == 4;
-        })->count()/$number*100;
-        $review3star = Collection::make($reviews)->filter(function ($review) {
-            return $review->reviewscore == 3;
-        })->count()/$number*100;
-        $review2star = Collection::make($reviews)->filter(function ($review) {
-            return $review->reviewscore == 2;
-        })->count()/$number*100;
-        $review1star = Collection::make($reviews)->filter(function ($review) {
-            return $review->reviewscore == 1;
-        })->count()/$number*100;
+        if($number != 0){
+            $review5star = Collection::make($reviews)->filter(function ($review) {
+                return $review->reviewscore == 5;
+            })->count()/$number*100;
+            $review4star = Collection::make($reviews)->filter(function ($review) {
+                return $review->reviewscore == 4;
+            })->count()/$number*100;
+            $review3star = Collection::make($reviews)->filter(function ($review) {
+                return $review->reviewscore == 3;
+            })->count()/$number*100;
+            $review2star = Collection::make($reviews)->filter(function ($review) {
+                return $review->reviewscore == 2;
+            })->count()/$number*100;
+            $review1star = Collection::make($reviews)->filter(function ($review) {
+                return $review->reviewscore == 1;
+            })->count()/$number*100;
+        } else {
+            $review5star = 0;
+            $review4star = 0;
+            $review3star = 0;
+            $review2star = 0;
+            $review1star = 0;
+        }
         return view('pages/reviews/reviewlist', ['reviews' => $reviews, 'product' => $product, 'star5'=> $review5star,
     'star4'=> $review4star, 'star3' => $review3star, 'star2' => $review2star, 'star1' => $review1star]);
     }
