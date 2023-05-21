@@ -63,6 +63,30 @@ class ProductSeeder extends Seeder
                 'productprice' => 25.99,
                 'productdescription' => '10mm Dynamic Driver With Metal Composite Diaphragm, Ergonomic Shape&Metal Housing, Detachable High Purity OFC Cable, N52 Magnet, Fine Tuning',
                 'productimage' => '7hz-saltnotes.avif'
+            ],
+            [
+                'productname' => 'Moondrop Kato',
+                'productprice' => 189.99,
+                'productdescription' => 'Developed ULT Dynamic Driver In Ear Earphone, Brand-New Developed ULT Super-Linear Dynamic Driver, 3rd Generation DLC Composite Diaphragm, Exquisite Design, Replaceable Sound Nozzle Design & Developed Spring Tips, Excellent Listening Experience',
+                'productimage' => 'moondrop-kato.webp'
+            ],
+            [
+                'productname' => 'Moondrop Blessing 3',
+                'productprice' => 319.99,
+                'productdescription' => 'Advanced 2DD +4BA Hybrid Triple-range Frequency Division In-ear Monitors, Full-bodied and authentically natural sound quality',
+                'productimage' => 'moondrop-blessing-3.webp'
+            ],
+            [
+                'productname' => 'Salnotes Dioko',
+                'productprice' => 89.9,
+                'productdescription' => '4.6mm Planar Diaphragm Driver In Ear Earphone, 7Hz x Crinacle Tuning, N55 Magnet, Double-sided Array, Fine Tuned CNC-Machined Aluminum Shell',
+                'productimage' => 'dioko.webp'
+            ],
+            [
+                'productname' => 'ThieAudio Monarch MKII',
+                'productprice' => 999.99,
+                'productdescription' => 'NEW Tribrid King - 1DD + 6BA + 2EST In-Ear Monitor, Upgraded Brand New 10mm Composite Diaphragm Dynamic Driver, Balanced Armatures from Sonion and Knowles, Sonion Electrostatic Drivers',
+                'productimage' => 'monarch-mk2.webp'
             ]
         ];
 

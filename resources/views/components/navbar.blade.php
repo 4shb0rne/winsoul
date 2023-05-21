@@ -14,7 +14,7 @@
             @if(Auth::user())
                @if(Auth::user()->role == "Admin")
                 <div class="dropdown">
-                    <a class="btn dropdown-toggle m-1 p-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn dropdown-toggle m-2 p-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-tasks" aria-hidden="true"></i> Admin Menu
                     </a>
                     <ul class="dropdown-menu">
@@ -23,13 +23,31 @@
                     </ul>
                 </div>
                 @endif
-                <a class="cart-icon m-1 p-2 text-decoration-none text-dark" href="/carts">
-                    <i class="fas fa-shopping-cart" style="color: black"></i>
-                    Cart
-                </a>
-                <a class="m-1" href="/logout">
-                    <button class="btn btn-dark">Logout</button>
-                </a>
+                <div class="dropdown dropstart">
+                    <a class="btn dropdown-toggle p-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('storage/assets/'.Auth::user()->profile_picture) }}" style="width:40px; border-radius: 10px;"/>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="p-1">
+                            <a class="cart-icon m-2 p-2 text-decoration-none text-dark" href="/profile">
+                                <i class="fas fa-user" style="color: black"></i>
+                                Update Profile
+                            </a>
+                        </li>
+                        <li class="p-1">
+                            <a class="cart-icon m-2 p-2 text-decoration-none text-dark" href="/carts">
+                                <i class="fas fa-shopping-cart" style="color: black"></i>
+                                Cart
+                            </a>
+                        </li>
+                        <li class="p-1">
+                            <a class="m-2 p-2 text-decoration-none text-danger" href="/logout">
+                                <i class="fas fa-sign-out-alt" style="color: red"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             @else
                 <a class="m-1" href="/login">
                     <button class="btn btn-dark">Login</button>

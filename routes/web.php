@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/carts', [CartController::class, 'openCart']);
     Route::get('/deletecart/{id}', [CartController::class, 'deleteCartProduct']);
     Route::get('/checkout', [CartController::class, 'checkout']);
+    Route::get('/profile', [UserController::class, 'openUpdateProfile']);
+    Route::post('/profile', [UserController::class, 'updateProfile']);
 });
 Route::middleware('admin')->group(function () {
     Route::get('/addproduct', [ProductController::class, 'addProductPage']);

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email', 50);
             $table->string('password', 255);
             $table->string('role', 10);
+            $table->string('profile_picture', 100);
             $table->timestamps();
         });
     }

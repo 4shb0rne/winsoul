@@ -201,8 +201,11 @@
                     <div class="col-10">
                         <div>
                             <div class="card-body">
-                            <h4 class="card-title"><i class="fa fa-user" aria-hidden="true"></i> {{$review->user->username}}</h4>
-                            <p class="card-text">{{ $review->content}}</p>
+                            <h5 class="card-title">
+                                <img src="{{ asset('storage/assets/'.$review->user->profile_picture) }}" style="width:25px; border-radius: 10px"/>
+                                <span>{{$review->user->username}}</span>
+                            </h5>
+                            <p class="card-text mt-2">{{ $review->content}}</p>
                             </div>
                         </div>
                     </div>

@@ -20,6 +20,14 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123'),
             'role' => 'Admin',
+            'profile_picture' => 'default_profile_picture.jpg'
+        ]);
+        User::create([
+            'username' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('user123'),
+            'role' => 'User',
+            'profile_picture' => 'default_profile_picture.jpg'
         ]);
     }
 }

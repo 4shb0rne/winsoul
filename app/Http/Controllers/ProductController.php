@@ -74,7 +74,7 @@ class ProductController extends Controller
     }
 
     public function loadHomePage(){
-        $products = Product::latest('created_at')->paginate(10);
+        $products = Product::latest('created_at')->paginate(8);
         return view('pages/home', ['data' => $products]);
     }
 
@@ -87,17 +87,17 @@ class ProductController extends Controller
     public function searchProduct(Request $request)
     {
         if($request->productname == ''){
-            $products = Product::paginate(10);
-            return view('pages/products/productlist', ['data' => $products]);
+            $products = Product::paginate(8);
+            return view('pages/products/productlist', ['data' => $products, 'search' => '']);
         } else {
             $products = Product::where('productname', 'like', '%'.$request->productname.'%')->paginate(10);
-            return view('pages/products/productlist', ['data' => $products]);
+            return view('pages/products/productlist', ['data' => $products, 'search' => $request->productname]);
         }
     }
 
     public function openSearchProduct()
     {
-        $products = Product::paginate(10);
-        return view('pages/products/productlist', ['data' => $products]);
+        $products = Product::paginate(8);
+        return view('pages/products/productlist', ['data' => $products, 'search' => '']);
     }
 }

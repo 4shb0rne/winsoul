@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-lg-3">
     <a href="{{ url('productdetail/'.$product->ProductID) }}" style="text-decoration: none; color: black;">
         <div class="card">
             <img src="{{ asset('storage/assets/'.$product->productimage) }}" class="card-img-top" style="height: 300px">
