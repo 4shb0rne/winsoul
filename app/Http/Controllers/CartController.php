@@ -39,7 +39,7 @@ class CartController extends Controller
             $this->addProductToCart($cart);
         } else {
             $carts[$idx]->quantity = $carts[$idx]->quantity + $validate['quantity'];
-            setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
+            setcookie('carts', json_encode($carts), time() + (86400 * 30), "/");
         }
 
         return redirect('carts');
@@ -80,8 +80,7 @@ class CartController extends Controller
             }
             $count++;
         }
-        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
-        return redirect('carts');
+        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/");
     }
 
     public function checkout()
@@ -102,7 +101,7 @@ class CartController extends Controller
         }
 
         $carts = [];
-        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
+        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/");
         return redirect('carts');
     }
 }

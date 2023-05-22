@@ -38,7 +38,7 @@
             </div>
             <div class="form-group mt-1">
                 <label>Product Image</label>
-                <input type="file" class="form-control mt-1" name="productimage">
+                <input type="file" class="form-control mt-1 @error('productimage')is-invalid @enderror" name="productimage">
                 @error('productimage')
                     <div class="invalid-feedback">
                         Product image must be filled

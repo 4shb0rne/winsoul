@@ -27,15 +27,30 @@
                 </div>
                 <p class="card-text">Password</p>
                 <div class="mb-3">
-                    <input type="password" class="form-control" name="password"/>
+                    <input type="password" class="form-control @error('password')is-invalid @enderror" name="password"/>
+                    @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <p class="card-text">Confirm Password</p>
                 <div class="mb-3">
-                    <input type="password" class="form-control" name="confirmpassword"/>
+                    <input type="password" class="form-control @error('confirmpassword')is-invalid @enderror" name="confirmpassword"/>
+                    @error('confirmpassword')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <p class="card-text">Profile Picture (Optional)</p>
                 <div class="mb-3">
-                    <input type="file" class="form-control" name="profileimage" value="{{ $user->profilepicture }}"/>
+                    <input type="file" class="form-control @error('profileimage')is-invalid @enderror" name="profileimage"/>
+                    @error('profileimage')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             <p><button type="submit" class="btn btn-success" style="width: 100%;">Submit</button></p>
             <p><a href="/profile"><input type="button" class="btn btn-outline-success" style="width: 100%;" value="Cancel"/></a></p>

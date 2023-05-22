@@ -73,7 +73,8 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8',
-            'confirmpassword' => 'required|same:password'
+            'confirmpassword' => 'required|min:8|same:password',
+            'profileimage' => 'required|file|image'
         ]);
         $user = User::find(Auth::user()->UserID);
         if ($request->file('profileimage')) {

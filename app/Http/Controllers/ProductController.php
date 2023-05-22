@@ -23,7 +23,7 @@ class ProductController extends Controller
             'productname' => 'required',
             'productdescription' => 'required',
             'productprice' => 'required',
-            'productimage' => 'required'
+            'productimage' => 'required|file|image'
         ]);
 
         $file = $request->file('productimage');
@@ -43,7 +43,8 @@ class ProductController extends Controller
         $validate = $request->validate([
             'productname' => 'required',
             'productdescription' => 'required',
-            'productprice' => 'required'
+            'productprice' => 'required',
+            'productimage' => 'required|file|image'
         ]);
 
         $product = Product::find($id);
