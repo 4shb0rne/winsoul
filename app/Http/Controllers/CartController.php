@@ -7,15 +7,14 @@ use App\Models\TransactionDetail;
 use App\Models\TransactionHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
     public function addProductToCart($product)
     {
-        $carts = Session::get('carts', []);
+        $carts = json_decode($_COOKIE['carts'] ?? '[]', true);
         $carts[] = $product;
-        Session::put('carts', $carts);
+        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
     }
 
     public function addCart(Request $request, $id)
@@ -27,20 +26,20 @@ class CartController extends Controller
         $idx = -1;
         $count = 0;
         $carts = $this->getCarts();
-        foreach($carts as $cart) {
-            if($cart->productid == $id){
+        foreach ($carts as $cart) {
+            if ($cart->productid == $id) {
                 $idx = $count;
             }
             $count++;
         }
-        if($idx == -1){
+        if ($idx == -1) {
             $cart = new Cart();
             $cart->productid = $id;
             $cart->quantity = $validate['quantity'];
             $this->addProductToCart($cart);
-        } else{
+        } else {
             $carts[$idx]->quantity = $carts[$idx]->quantity + $validate['quantity'];
-            Session::put('carts', $carts);
+            setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
         }
 
         return redirect('carts');
@@ -48,7 +47,7 @@ class CartController extends Controller
 
     public function getCarts()
     {
-        $data = Session::get('carts', []);
+        $data = json_decode($_COOKIE['carts'] ?? '[]', true);
         $carts = [];
         foreach ($data as $cartArray) {
             $cartObject = new Cart();
@@ -60,26 +59,28 @@ class CartController extends Controller
         return $carts;
     }
 
-    public function openCart(){
+    public function openCart()
+    {
         $carts = $this->getCarts();
         $total_price = 0;
-        foreach($carts as $cart){
+        foreach ($carts as $cart) {
             $total_price += $cart->product->productprice * $cart->quantity;
         }
         return view('pages/cart/cartlist', ["carts" => $carts, "total_price" => $total_price]);
     }
 
-    public function deleteCartProduct($id){
+    public function deleteCartProduct($id)
+    {
         $carts = $this->getCarts();
         $count = 0;
-        foreach($carts as $cart){
-            if($cart->productid == $id){
+        foreach ($carts as $cart) {
+            if ($cart->productid == $id) {
                 unset($carts[$count]);
                 $carts = array_values($carts);
             }
             $count++;
         }
-        Session::put('carts', $carts);
+        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
         return redirect('carts');
     }
 
@@ -92,7 +93,7 @@ class CartController extends Controller
             'TransactionDate' => date('Y-m-d H:i:s', strtotime('now'))
         ]);
 
-        foreach($products as $product){
+        foreach ($products as $product) {
             TransactionDetail::create([
                 'TransactionID' => $header->TransactionID,
                 'ProductID' => $product->productid,
@@ -101,7 +102,7 @@ class CartController extends Controller
         }
 
         $carts = [];
-        Session::put('carts', $carts);
+        setcookie('carts', json_encode($carts), time() + (86400 * 30), "/"); // Set cookie for 30 days
         return redirect('carts');
     }
 }

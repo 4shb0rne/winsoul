@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -60,6 +61,7 @@ class UserController extends Controller
             'username' => $validate['name'],
             'email' => $validate['email'],
             'password' => bcrypt($validate['password']),
+            'profile_picture' => 'default_profile_picture.jpg',
             'role' => 'User'
         ]);
         return redirect('/login');
@@ -97,6 +99,7 @@ class UserController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+        Cookie::queue(Cookie::forget('carts'));
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');

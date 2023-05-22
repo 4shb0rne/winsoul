@@ -198,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-10">
+                    <div class="col-9">
                         <div>
                             <div class="card-body">
                             <h5 class="card-title">
@@ -209,6 +209,15 @@
                             </div>
                         </div>
                     </div>
+                    @auth
+                        @if(Auth::user()->UserID == $review->user->UserID)
+                        <div class="col-1">
+                            <a class="btn btn-danger" href="{{ url('deletereview/'.$review->ReviewID.'/'.$product->ProductID) }}">
+                                <i class="fa-icon fa fa-trash">
+                            </i></a>
+                        </div>
+                        @endif
+                    @endauth
                     </div>
                 </div>
             @endforeach
