@@ -1,10 +1,23 @@
 @extends('index')
 @section('content')
 <h1 class="text-center">My Cart</h1>
-<div class="row mt-3" style="margin-left: 15%;">
+<div class="row mt-3" style="margin-left: 13%;">
     <div class="col-10">
         @if (count($carts) == 0)
-            <h2 class="text-center text-danger mt-5">Cart is Empty</h2>
+            <div>
+                <div class="d-flex justify-content-center mt-5">
+                    <h2 class="text-center text-danger mt-5">Cart is Empty</h2>
+                </div>
+                <div class="d-flex justify-content-center mt-5">
+                    <img src="{{ asset('storage/assets/emptycart.png') }}"/>
+                </div>
+                <h2 class="text-center mt-5">Looks like you haven't added anything to your cart</h2>
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="/">
+                        <button class="btn btn-dark">Go To Home</button>
+                    <a>
+                </div>
+            </div>
         @else
         <table class="table mt-3">
             <thead>

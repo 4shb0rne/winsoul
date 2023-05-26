@@ -167,7 +167,7 @@
                         </div>
                         <div class="d-flex">
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="content"></textarea>
-                            <button type="submit" class="btn btn-primary ml-3">Insert</button>
+                            <button type="submit" class="btn btn-primary" style="margin-left: 20px">Insert</button>
                         </div>
                         @if ($errors->any())
                             @foreach ($errors->all() as $error)
@@ -181,7 +181,7 @@
                 @foreach ($reviews as $review)
                     <div class="container border p-3">
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="star-rating">
@@ -209,7 +209,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-8">
+                            <div class="col-7">
                                 <div>
                                     <div class="card-body">
                                         <h5 class="card-title">

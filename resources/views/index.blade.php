@@ -31,15 +31,14 @@
         document.getElementById('star_1')
     ];
 
-        const hiddenInput = document.getElementById('score');
+    const hiddenInput = document.getElementById('score');
 
-        radioButtons.forEach(radioButton => {
-        radioButton.addEventListener('click', function() {
+    radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('click', function() {
             if (this.checked) {
                 hiddenInput.value = this.value;
             }
         });
     });
-
 </script>
 </html>

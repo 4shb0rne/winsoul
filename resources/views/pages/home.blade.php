@@ -3,7 +3,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <div class="container mt-2">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8">
+            <div class="col-1 align-self-center">
+                <a href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+            </div>
+            <div class="col-10 col-md-8">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -18,23 +24,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center mt-2">
-            <div class="col-2">
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </a>
-            </div>
-            <div class="col-8"></div>
-            <div class="col-2">
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <div class="col-1 align-self-center">
+                <a href="#carouselExampleIndicators" role="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </a>
             </div>
         </div>
-    </div>
+    </div>    
     <div class="d-flex justify-content-center">
         <div class="mt-5">
             <form action="/searchproduct" method="POST" enctype="multipart/form-data">

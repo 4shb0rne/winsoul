@@ -53,7 +53,7 @@
                     @enderror
                 </div>
             <p><button type="submit" class="btn btn-success" style="width: 100%;">Submit</button></p>
-            <p><a href="/profile"><input type="button" class="btn btn-outline-success" style="width: 100%;" value="Cancel"/></a></p>
+            <p><a href="/"><input type="button" class="btn btn-outline-success" style="width: 100%;" value="Cancel"/></a></p>
             </form>
         </div>
     </div>

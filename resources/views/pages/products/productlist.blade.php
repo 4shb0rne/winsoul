@@ -2,10 +2,10 @@
 @section("content")
 <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
 <div class="d-flex justify-content-center">
-    <div class="mt-4" style="min-width: 90%">
+    <div class="mt-4" style="max-width: 90%;">
         <form action="/searchproduct" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="input-group rounded">
+            <div class="input-group rounded" style="width: 100%;">
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                 aria-describedby="search-addon" name="productname" value="{{ $search }}"/>
                 <button type="submit">

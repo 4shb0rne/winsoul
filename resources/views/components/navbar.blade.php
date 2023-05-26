@@ -24,23 +24,23 @@
                 </div>
                 @endif
                 <div class="dropdown dropstart">
-                    <a class="btn dropdown-toggle p-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn dropdown-toggle p-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ asset('storage/assets/'.Auth::user()->profile_picture) }}" style="width:40px; border-radius: 10px;"/>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="p-1">
-                            <a class="cart-icon m-2 p-2 text-decoration-none text-dark" href="/profile">
+                        <li class="pb-2">
+                            <a class="m-2 p-2 text-decoration-none text-dark" href="/profile">
                                 <i class="fas fa-user" style="color: black"></i>
                                 Update Profile
                             </a>
                         </li>
-                        <li class="p-1">
-                            <a class="cart-icon m-2 p-2 text-decoration-none text-dark" href="/carts">
+                        <li class="pb-2">
+                            <a class="m-2 p-2 text-decoration-none text-dark" href="/carts">
                                 <i class="fas fa-shopping-cart" style="color: black"></i>
                                 Cart
                             </a>
                         </li>
-                        <li class="p-1">
+                        <li class="pb-2">
                             <a class="m-2 p-2 text-decoration-none text-danger" href="/logout">
                                 <i class="fas fa-sign-out-alt" style="color: red"></i>
                                 Logout
