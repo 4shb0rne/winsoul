@@ -81,6 +81,7 @@ class CartController extends Controller
             $count++;
         }
         setcookie('carts', json_encode($carts), time() + (86400 * 30), "/");
+        return redirect('carts');
     }
 
     public function checkout()

@@ -94,7 +94,7 @@ class UserController extends Controller
             'profile_picture' => $originalname
         ]);
 
-        return redirect('/');
+        return redirect()->back();
     }
 
     public function logout(Request $request)
