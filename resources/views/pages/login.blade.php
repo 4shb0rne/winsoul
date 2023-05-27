@@ -1,5 +1,6 @@
 @extends('index')
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 @if($errors->all())
 <div class="errorcredential">
     <div class="errormsg">
@@ -9,11 +10,11 @@
 @endif
 <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-5">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-light" style="margin-top: 5%">
             Login
         </h2>
     </div>
-    <div class="d-flex justify-content-center" style="margin-top: 2.5%;">
+    <div class="d-flex justify-content-center" style="margin-top: 2%;">
         <div class="card row d-flex" style="width: 30rem;">
             <div class="card-body">
                 <form action="/login" method="POST">

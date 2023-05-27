@@ -13,7 +13,7 @@
         <header>
             @include('components/navbar')
         </header>
-        <main style="flex: 1">
+        <main style="flex: 1" id="main-section">
             @yield('content')
         </main>
         <footer>
